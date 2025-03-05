@@ -36,10 +36,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/Gameplay/Engine/BoardEditor.cs" />
-     <Compile Include="Assets/Scripts/Gameplay/Engine/Board.cs" />
      <Compile Include="Assets/Scripts/Gameplay/Engine/GameEngine.cs" />
+     <Compile Include="Assets/Scripts/Gameplay/Engine/BoardEditor.cs" />
      <Compile Include="Assets/Scripts/Utils/FileUtils.cs" />
+     <Compile Include="Assets/Scripts/Gameplay/Engine/Board.cs" />
+     <Compile Include="Assets/Scripts/InputManager/InputManager.cs" />
+     <Compile Include="Assets/Scripts/InputManager/IInputManager.cs" />
+     <Compile Include="Assets/Scripts/Gameplay/Player/Actor.cs" />
+     <Compile Include="Assets/Scripts/Gameplay/Player/Player.cs" />
      <None Include="Assets/Levels/Level_Idea_2-22-2025_2p51p45_AM.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.11f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
