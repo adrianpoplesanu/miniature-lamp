@@ -10,6 +10,7 @@ public class Player : Actor {
     }
 
     void Update() {
-        Debug.Log(inputManager.GetDirectionalInput());
+        //Debug.Log(pixelSize);
+        //Debug.Log(inputManager.GetDirectionalInput());
     }
 }
