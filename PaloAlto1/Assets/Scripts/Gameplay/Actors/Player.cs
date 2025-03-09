@@ -12,5 +12,17 @@ public class Player : Actor {
     void Update() {
         //Debug.Log(pixelSize);
         //Debug.Log(inputManager.GetDirectionalInput());
+        //ApplyGravity();
+    }
+
+    public void UpdatePosition() {
+        Vector2 pos = transform.position;
+        pos.x += speedX;
+        pos.y += speedY;
+        transform.position = pos;
+    }
+
+    public void ApplyGravity() {
+
     }
 }

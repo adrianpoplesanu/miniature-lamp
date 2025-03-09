@@ -8,9 +8,22 @@ using UnityEngine;
 [System.Serializable]
 [RequireComponent(typeof(FileUtils))]
 public class Board : MonoBehaviour {
-    public Vector2Int mapSize = new(10, 10);
-    public int[,] values = new int[20, 20];
+    [SerializeField] public Vector2Int mapSize = new(10, 10);
+    [SerializeField] public int[,] values = new int[20, 20];
     FileUtils fileUtils;
+
+    void Awake() {
+        values[3, 5] = 1;
+        values[8, 1] = 2;
+        values[8, 2] = 2;
+        values[8, 3] = 2;
+        values[8, 4] = 2;
+        values[8, 5] = 2;
+        values[8, 6] = 2;
+        values[8, 7] = 2;
+        values[8, 8] = 2;
+        values[8, 9] = 2;
+    }
 
     void Start() {
         //values = new int[mapSize.x, mapSize.y];

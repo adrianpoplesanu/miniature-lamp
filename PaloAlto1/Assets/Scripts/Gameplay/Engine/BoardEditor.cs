@@ -24,6 +24,7 @@ public class BoardEditor : Editor {
             GUILayout.BeginHorizontal();
             for (int j = 0; j < myScript.mapSize.y; j++) {
                 myScript.values[i, j] = EditorGUILayout.IntField(myScript.values[i, j], GUILayout.Width(16));
+                //EditorGUILayout.IntField(myScript.values[i, j], GUILayout.Width(16));
             }
             GUILayout.EndHorizontal();
         }
