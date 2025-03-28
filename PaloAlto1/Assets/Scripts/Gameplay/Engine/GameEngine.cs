@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class GameEngine : MonoBehaviour {
     public GameObject levelSettings;
-    public GameObject player;
+    public GameObject playerGameObject;
+    public Player player;
     public GameObject defaultPlatformPrefab;
     public int[,] board;
     public Vector2Int mapSize;
 
     public 
     void Start() {
+        player = playerGameObject.GetComponent<Player>();
         board = levelSettings.GetComponent<Board>().values;
         mapSize = levelSettings.GetComponent<Board>().mapSize;
         InitializeGame();
@@ -29,25 +31,24 @@ public class GameEngine : MonoBehaviour {
         for (int i = 0; i < mapSize.x; i++) {
             for (int j = 0; j < mapSize.y; j++) {
                 if (board[i, j] == 1) {
-                    player.transform.position = new Vector2(j, i);
+                    playerGameObject.transform.position = new Vector2(j, i);
                 } else if (board[i, j] == 2) {
                     Debug.Log("instantiating platform");
                     Vector2 spawnPosition = new(j, i - mapSize.x);
                     Quaternion spawnRotation = Quaternion.identity;
 
-                    GameObject newObject = Instantiate(defaultPlatformPrefab, spawnPosition, spawnRotation);
+                    GameObject newObject = Instantiate(defaultPlatformPrefab, spawnPosition, spawnRotation); 
+                    // TODO: store this object for references ^^^
                 }
             }
         }
     }
 
     void UpdatePlayerPosition() {
-        // TODO: fix this ugly reference
-        player.GetComponent<Player>().UpdatePosition();
+        player.UpdatePosition();
     }
 
     void ApplyGravity() {
-        // TODO: fix this ugly reference
-        player.GetComponent<Player>().ApplyGravity();
+        player.ApplyGravity();
     }
 }

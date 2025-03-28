@@ -510,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSettings: {fileID: 367790982}
+  playerGameObject: {fileID: 1096040356}
   player: {fileID: 1096040356}
   defaultPlatformPrefab: {fileID: 5147723844080824757, guid: cdc428016f63d46569d92091c3c373eb, type: 3}
   mapSize: {x: 0, y: 0}
@@ -1719,6 +1720,8 @@ MonoBehaviour:
   pixelHeight: 0
   boardX: 0
   boardY: 0
+  boardMovementDirectionX: 0
+  boardMovementDirectionY: 0
   posX: 0
   posY: 0
   speedX: 0

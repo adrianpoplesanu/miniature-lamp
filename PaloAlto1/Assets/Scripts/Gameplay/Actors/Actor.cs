@@ -9,6 +9,8 @@ public class Actor : MonoBehaviour {
     public int pixelHeight;
     public int boardX;
     public int boardY;
+    public int boardMovementDirectionX;
+    public int boardMovementDirectionY;
     public float posX;
     public float posY;
     public float speedX;
