@@ -4,10 +4,13 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(InputManager))]
+[RequireComponent(typeof(RayCastManager))]
 public class Player : Actor {
     InputManager inputManager;
+    RayCastManager rayCastManager;
     void Start() {
         inputManager = GetComponent<InputManager>();
+        rayCastManager = GetComponent<RayCastManager>();
     }
 
     void Update() {
@@ -32,7 +35,7 @@ public class Player : Actor {
 
         Debug.DrawRay(transform.position, direction.normalized * rayDistance, rayColor);*/
 
-        Ray ray = new Ray(transform.position, Vector2.down);
+        /*Ray ray = new Ray(transform.position, Vector2.down);
 
         float rayDistance = 3.0f;
         Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red, 1f);
@@ -42,6 +45,8 @@ public class Player : Actor {
         if (hit.collider != null)
         {
             Debug.Log("Hit: " + hit.collider.name);
-        }
+        }*/
+        Vector2 hitDistance = rayCastManager.PerformChecksVertical(transform.position, Vector2.down);
+        Debug.Log(hitDistance);
     }
 }
