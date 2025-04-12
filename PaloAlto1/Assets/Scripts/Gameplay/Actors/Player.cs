@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 [RequireComponent(typeof(InputManager))]
 [RequireComponent(typeof(RayCastManager))]
@@ -17,6 +18,8 @@ public class Player : Actor {
         //Debug.Log(pixelSize);
         //Debug.Log(inputManager.GetDirectionalInput());
         //ApplyGravity();
+        //Move();
+        UpdatePosition();
     }
 
     public void UpdatePosition() {
@@ -24,6 +27,8 @@ public class Player : Actor {
         pos.x += speedX;
         pos.y += speedY;
         transform.position = pos;
+        Vector2 offset = inputManager.GetDirectionalInput();
+        Move(offset);
     }
 
     public void ApplyGravity() {
@@ -46,7 +51,13 @@ public class Player : Actor {
         {
             Debug.Log("Hit: " + hit.collider.name);
         }*/
-        Vector2 hitDistance = rayCastManager.PerformChecksVertical(transform.position, Vector2.down);
-        Debug.Log(hitDistance);
+        //Vector2 hitDistance = rayCastManager.PerformChecksVertical(transform.position, Vector2.down);
+        //Debug.Log(hitDistance);
+
+    }
+
+    public void Move(Vector2 offset) {
+        Vector2 hitVertical = rayCastManager.PerformChecksVertical(transform.position, Vector2.down);
+        Vector2 hitHorizontal = rayCastManager.PerformChecksHorizontal(transform.position, Vector2.right);
     }
 }
