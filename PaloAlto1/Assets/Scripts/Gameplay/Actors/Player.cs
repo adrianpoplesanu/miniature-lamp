@@ -15,49 +15,33 @@ public class Player : Actor {
     }
 
     void Update() {
-        //Debug.Log(pixelSize);
-        //Debug.Log(inputManager.GetDirectionalInput());
-        //ApplyGravity();
-        //Move();
-        UpdatePosition();
+        //...
     }
 
     public void UpdatePosition() {
-        Vector2 pos = transform.position;
-        pos.x += speedX;
-        pos.y += speedY;
-        transform.position = pos;
         Vector2 offset = inputManager.GetDirectionalInput();
-        Move(offset);
+
+        float factor = 0.2f;
+        //speedX = offset.x * pixelSize * factor; // input raw 1 move one pixel
+        //speedY = offset.y * pixelSize * factor; // input raw 1 move one pixel
+        speedX = offset.x * pixelSize; // input raw 1 move one pixel
+        speedY = offset.y * pixelSize; // input raw 1 move one pixel
+        Vector2 speed = new(speedX, speedY);
+        Vector2 maxAvailableMovement = TruncateMovement(speed);
+
+        Vector2 pos = transform.position;
+        pos.x += maxAvailableMovement.x;
+        pos.y += maxAvailableMovement.y;
+        transform.position = pos;
     }
 
     public void ApplyGravity() {
-        //Debug.Log("checking player gravity constraints...");
-
-        /*Vector2 direction = Vector2.right; // Default direction (right)
-        float rayDistance = 5f;
-        Color rayColor = Color.red;
-
-        Debug.DrawRay(transform.position, direction.normalized * rayDistance, rayColor);*/
-
-        /*Ray ray = new Ray(transform.position, Vector2.down);
-
-        float rayDistance = 3.0f;
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red, 1f);
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, LayerMask.GetMask("Blocks"));
-        
-        if (hit.collider != null)
-        {
-            Debug.Log("Hit: " + hit.collider.name);
-        }*/
-        //Vector2 hitDistance = rayCastManager.PerformChecksVertical(transform.position, Vector2.down);
-        //Debug.Log(hitDistance);
 
     }
 
-    public void Move(Vector2 offset) {
-        Vector2 hitVertical = rayCastManager.PerformChecksVertical(transform.position, Vector2.down);
-        Vector2 hitHorizontal = rayCastManager.PerformChecksHorizontal(transform.position, Vector2.right);
+    public Vector2 TruncateMovement(Vector2 offset) {
+        Vector2 truncate1 = rayCastManager.PerformChecksVertical(transform.position, offset);
+        Vector2 truncate2 = rayCastManager.PerformChecksHorizontal(transform.position, truncate1);
+        return truncate2;
     }
 }

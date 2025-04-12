@@ -21,8 +21,8 @@ public class GameEngine : MonoBehaviour {
     }
 
     void Update() {
-        UpdatePlayerPosition();
         ApplyGravity();
+        UpdatePlayerPosition();
     }
 
     void InitializeGame() {
