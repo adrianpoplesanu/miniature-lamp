@@ -19,6 +19,8 @@ public class Actor : MonoBehaviour {
     public float maxSpeedY;
     public float minSpeedX;
     public float minSpeedY;
+    public float maxPosReachedX;
+    public float maxPosReachedY = -1000F;
     public float inputFactorSpeedX;
     public float inputFactorSpeedY;
     public int gravityLimit = -6;

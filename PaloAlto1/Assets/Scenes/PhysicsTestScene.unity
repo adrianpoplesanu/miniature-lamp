@@ -1731,8 +1731,10 @@ MonoBehaviour:
   maxSpeedY: 0
   minSpeedX: 0
   minSpeedY: 0
-  inputFactorSpeedX: 0
-  inputFactorSpeedY: 0
+  maxPosReachedX: 0
+  maxPosReachedY: -1000
+  inputFactorSpeedX: 0.5
+  inputFactorSpeedY: 0.25
   gravityLimit: -6
   gravityAcceleration: -2
   pixelsPerUnit: 32

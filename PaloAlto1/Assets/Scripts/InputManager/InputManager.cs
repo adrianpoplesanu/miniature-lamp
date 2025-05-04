@@ -17,6 +17,10 @@ public class InputManager : MonoBehaviour, IInputManager {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
+    public bool SpaceHit() {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
     public bool StoreDirectionsInput() {
         inputShards[ip] = GetDirectionalInput();
         ip++;
