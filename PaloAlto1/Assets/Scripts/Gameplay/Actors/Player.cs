@@ -19,7 +19,8 @@ public class Player : Actor {
         //...
     }
 
-    public void UpdatePosition() {
+    public void UpdatePosition()
+    {
         Vector2 offset = inputManager.GetDirectionalInput();
 
         float factor = 0.2f;
@@ -31,8 +32,9 @@ public class Player : Actor {
         //speedY = offset.y * pixelSize * inputFactorSpeedY;
 
         ApplyGravity(); // asta nu trebuie sa fie apelat aici
-        if (inputManager.SpaceHit() && speedY <= -0.0078125F) { // nici asta nu trebuie sa fie apelat aici
-            speedY = 2 * 0.03125F;
+        if (inputManager.SpaceHit() && speedY <= -0.0078125F)
+        { // nici asta nu trebuie sa fie apelat aici
+            speedY = 1.5F * 0.03125F;
         }
         Vector2 speed = new(speedX, speedY);
         Vector2 maxAvailableMovement = TruncateMovement(speed);
@@ -47,7 +49,7 @@ public class Player : Actor {
 
     public void ApplyGravity() {
         //...
-        speedY -= 0.03125F / 128;
+        speedY -= 0.03125F / 256;
         if (speedY < -1 * 0.03125F) {
             speedY = -1 * 0.03125F;
         }
