@@ -8,21 +8,39 @@ using UnityEngine;
 [System.Serializable]
 [RequireComponent(typeof(FileUtils))]
 public class Board : MonoBehaviour {
-    [SerializeField] public Vector2Int mapSize = new(10, 10);
-    [SerializeField] public int[,] values = new int[20, 20];
+    [SerializeField] public Vector2Int mapSize = new(50, 50);
+    [SerializeField] public int[,] values = new int[50, 50];
     FileUtils fileUtils;
 
     void Awake() {
+        for (int i = 1; i < 30; i++) {
+            values[ i,  0] = 2;
+            values[ 0,  i] = 2;
+            values[30,  i] = 2;
+            values[ i, 30] = 2;
+        }
+
+        //values[ 1,  4] = 2;
+        values[ 2,  4] = 2;
+        values[ 3,  4] = 2;
+        values[ 4,  4] = 2;
+        values[ 5,  4] = 2;
+
+
+        values[ 7,  8] = 2;
+        values[ 8,  8] = 2;
+        values[ 9,  8] = 2;
+        values[10,  8] = 2;
+        values[11,  8] = 2;
+
+        values[13, 12] = 2;
+        values[14, 12] = 2;
+        values[15, 12] = 2;
+        values[16, 12] = 2;
+        values[17, 12] = 2;
+
+
         values[3, 5] = 1;
-        values[8, 1] = 2;
-        values[8, 2] = 2;
-        values[8, 3] = 2;
-        values[8, 4] = 2;
-        values[8, 5] = 2;
-        values[8, 6] = 2;
-        values[8, 7] = 2;
-        values[8, 8] = 2;
-        values[8, 9] = 2;
     }
 
     void Start() {

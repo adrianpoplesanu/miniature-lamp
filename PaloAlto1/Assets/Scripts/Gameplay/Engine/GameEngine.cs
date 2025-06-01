@@ -34,7 +34,8 @@ public class GameEngine : MonoBehaviour {
                     playerGameObject.transform.position = new Vector2(j, i);
                 } else if (board[i, j] == 2) {
                     Debug.Log("instantiating platform");
-                    Vector2 spawnPosition = new(j, i - mapSize.x);
+                    //Vector2 spawnPosition = new(j, i - mapSize.x);
+                    Vector2 spawnPosition = new(i, j);
                     Quaternion spawnRotation = Quaternion.identity;
 
                     GameObject newObject = Instantiate(defaultPlatformPrefab, spawnPosition, spawnRotation); 

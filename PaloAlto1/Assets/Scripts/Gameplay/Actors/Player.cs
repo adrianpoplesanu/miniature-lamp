@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -49,9 +50,17 @@ public class Player : Actor {
 
     public void ApplyGravity() {
         //...
-        speedY -= 0.03125F / 256;
-        if (speedY < -1 * 0.03125F) {
-            speedY = -1 * 0.03125F;
+        if (speedY >= 0) {
+            speedY -= 0.03125F / 256; // gravity when going up
+            if (speedY < -1 * 0.03125F) {
+                speedY = -1 * 0.03125F;
+            }
+        }
+        else {
+            speedY -= 0.03125F / 256 / 4; // gravity when going down, is a bit more lenient
+            if (speedY < -1 * 0.03125F) {
+                speedY = -1 * 0.03125F;
+            }
         }
     }
 
