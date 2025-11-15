@@ -1733,7 +1733,7 @@ MonoBehaviour:
   minSpeedY: 0
   maxPosReachedX: 0
   maxPosReachedY: -1000
-  inputFactorSpeedX: 0.3
+  inputFactorSpeedX: 0.35
   inputFactorSpeedY: 0.25
   gravityLimit: -6
   gravityAcceleration: -2
