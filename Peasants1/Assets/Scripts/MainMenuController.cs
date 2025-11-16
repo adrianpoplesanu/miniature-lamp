@@ -65,6 +65,7 @@ public class MainMenuController : MonoBehaviour
     private void OnSettingsClicked()
     {
         bool showSettings = settingsPanel == null || !settingsPanel.activeSelf;
+        settingsButton.GetComponentInChildren<Text>().color = settingsButton.GetComponentInChildren<ButtonTextHover>().GetNormalColor();
         ToggleSettings(showSettings);
     }
 
