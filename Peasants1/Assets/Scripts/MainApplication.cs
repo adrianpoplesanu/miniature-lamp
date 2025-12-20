@@ -6,6 +6,11 @@ public class MainApplication : MonoBehaviour
     void Start()
     {
         Debug.Log("running...");
+        
+        // Initialize settings manager early to ensure settings are loaded
+        SettingsManager settingsManager = SettingsManager.Instance;
+        Debug.Log("Settings loaded. Master Volume: " + settingsManager.CurrentSettings.masterVolume);
+        
         test();
     }
 

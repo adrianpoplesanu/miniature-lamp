@@ -42,17 +42,21 @@
     <UnityVersion>6000.2.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/adrianpoplesanu/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.3/Analyzers/Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="/Users/adrianpoplesanu/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.0/Analyzers/Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.2.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.2.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.2.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/TextGlitchDriver.cs" />
+    <Compile Include="Assets/Scripts/GameSettings.cs" />
     <Compile Include="Assets/Scripts/MainApplication.cs" />
     <Compile Include="Assets/Scripts/TextFlicker.cs" />
+    <Compile Include="Assets/Scripts/SettingsManager.cs" />
     <Compile Include="Assets/Scripts/MainMenuController.cs" />
+    <Compile Include="Assets/Scripts/MainMenuSettingsLoader.cs" />
     <Compile Include="Assets/Scripts/ButtonTextHover.cs" />
+    <Compile Include="Assets/Scripts/SettingsExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Shaders/UIShowLowerHalf.shader" />

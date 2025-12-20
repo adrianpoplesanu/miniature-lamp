@@ -50,7 +50,7 @@ public class TextGlitchDriver : MonoBehaviour
 		{
 			// In local space, vertices use rect coordinates (xMin..xMax)
 			var rect = rt.rect;
-            Debug.Log($"Rect: {rect.xMin}, {rect.xMax}, {rect.yMin}, {rect.yMax}");
+            //Debug.Log($"Rect: {rect.xMin}, {rect.xMax}, {rect.yMin}, {rect.yMax}");
 			runtimeMat.SetFloat("_RectLocalXMin", rect.xMin);
 			runtimeMat.SetFloat("_RectLocalWidth", Mathf.Max(0.0001f, rect.width));
 			runtimeMat.SetFloat("_RectLocalYMin", rect.yMin);
