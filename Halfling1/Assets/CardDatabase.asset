@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: CardDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::CardDatabase
+  cards:
+  - id: 1
+    name: Fireball
+    cost: 4
+    attack: 0
+    health: 0
+    description: Deal 6 damage
+    type: 1
+    effect: 0
+    value: 6
+    instanceId: 0
+    canAttack: 0
+  - id: 2
+    name: Lightning Bolt
+    cost: 1
+    attack: 0
+    health: 0
+    description: Deal 3 damage
+    type: 1
+    effect: 0
+    value: 3
+    instanceId: 0
+    canAttack: 0
+  - id: 3
+    name: Heal
+    cost: 2
+    attack: 0
+    health: 0
+    description: Restore 5 health
+    type: 1
+    effect: 1
+    value: 5
+    instanceId: 0
+    canAttack: 0
+  - id: 4
+    name: Chicken
+    cost: 1
+    attack: 1
+    health: 1
+    description: A weak minion
+    type: 0
+    effect: 0
+    value: 0
+    instanceId: 0
+    canAttack: 0
+  - id: 5
+    name: Orc Warrior
+    cost: 3
+    attack: 3
+    health: 2
+    description: A fierce fighter
+    type: 0
+    effect: 0
+    value: 0
+    instanceId: 0
+    canAttack: 0
+  - id: 6
+    name: Dragon
+    cost: 8
+    attack: 8
+    health: 8
+    description: A powerful beast
+    type: 0
+    effect: 0
+    value: 0
+    instanceId: 0
+    canAttack: 0
+  - id: 7
+    name: Knight
+    cost: 4
+    attack: 3
+    health: 5
+    description: A sturdy defender
+    type: 0
+    effect: 0
+    value: 0
+    instanceId: 0
+    canAttack: 0
+  - id: 8
+    name: Goblin
+    cost: 2
+    attack: 2
+    health: 1
+    description: Quick but fragile
+    type: 0
+    effect: 0
+    value: 0
+    instanceId: 0
+    canAttack: 0
+  - id: 9
+    name: Shield
+    cost: 1
+    attack: 0
+    health: 0
+    description: Gain 5 armor
+    type: 1
+    effect: 2
+    value: 5
+    instanceId: 0
+    canAttack: 0
+  - id: 10
+    name: Wolf
+    cost: 2
+    attack: 2
+    health: 2
+    description: A loyal companion
+    type: 0
+    effect: 0
+    value: 0
+    instanceId: 0
+    canAttack: 0
