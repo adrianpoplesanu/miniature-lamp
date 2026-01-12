@@ -13,6 +13,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public TextMeshProUGUI descriptionText;
     public Image cardImage;
     public Outline borderOutline;
+    //public Image borderImage;
     
     private CardData cardData;
     private bool isPlayer;
