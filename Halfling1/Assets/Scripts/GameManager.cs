@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -193,6 +194,9 @@ public class GameManager : MonoBehaviour
         CardData minion = card.Clone();
         minion.canAttack = false; // Summoning sickness
         
+        // Log card play
+        Debug.Log($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] Player played card: {card.name} (Minion)");
+        
         playerBoardMinions.Add(minion);
         playerMana -= card.cost;
         playerHand.Remove(card);
@@ -203,6 +207,9 @@ public class GameManager : MonoBehaviour
     
     private void PlaySpell(CardData card)
     {
+        // Log card play
+        Debug.Log($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] Player played card: {card.name} (Spell - {card.effect})");
+        
         if (card.effect == SpellEffect.Damage)
         {
             if (opponentBoardMinions.Count > 0)
@@ -417,6 +424,9 @@ public class GameManager : MonoBehaviour
             {
                 if (card.type == CardType.Minion && opponentBoardMinions.Count < 7)
                 {
+                    // Log card play
+                    Debug.Log($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] Opponent played card: {card.name} (Minion)");
+                    
                     CardData minion = card.Clone();
                     minion.canAttack = false;
                     opponentBoardMinions.Add(minion);
@@ -425,6 +435,9 @@ public class GameManager : MonoBehaviour
                 }
                 else if (card.type == CardType.Spell)
                 {
+                    // Log card play
+                    Debug.Log($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] Opponent played card: {card.name} (Spell - {card.effect})");
+                    
                     if (card.effect == SpellEffect.Damage)
                     {
                         if (playerBoardMinions.Count > 0)
@@ -446,6 +459,25 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        
+        // Log opponent's current hand
+        string handContents = "Opponent Hand: ";
+        if (opponentHand.Count == 0)
+        {
+            handContents += "Empty";
+        }
+        else
+        {
+            for (int i = 0; i < opponentHand.Count; i++)
+            {
+                handContents += opponentHand[i].name;
+                if (i < opponentHand.Count - 1)
+                {
+                    handContents += ", ";
+                }
+            }
+        }
+        Debug.Log($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] {handContents}");
         
         UpdateUI();
     }

@@ -124,7 +124,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         if (isPlayer)
         {
             transform.localScale = originalScale * 1.1f;
-            transform.SetAsLastSibling();
+            // Removed SetAsLastSibling() to prevent cards from shuffling in hand
         }
     }
     
