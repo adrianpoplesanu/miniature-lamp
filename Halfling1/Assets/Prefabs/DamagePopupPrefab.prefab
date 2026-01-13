@@ -149,6 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416547c7ca62f4f6291ceb72998e70cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagePopup
-  damageText: {fileID: 0}
+  damageText: {fileID: 7903760171462238260}
   lifetime: 1
   floatSpeed: 50
