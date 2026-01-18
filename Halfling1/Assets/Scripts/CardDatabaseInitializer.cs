@@ -16,7 +16,7 @@ public class CardDatabaseInitializer : MonoBehaviour
             new CardData { id = 1, name = "Fireball", cost = 4, attack = 0, health = 0, description = "Deal 6 damage", type = CardType.Spell, effect = SpellEffect.Damage, value = 6 },
             new CardData { id = 2, name = "Lightning Bolt", cost = 1, attack = 0, health = 0, description = "Deal 3 damage", type = CardType.Spell, effect = SpellEffect.Damage, value = 3 },
             new CardData { id = 3, name = "Heal", cost = 2, attack = 0, health = 0, description = "Restore 5 health", type = CardType.Spell, effect = SpellEffect.Heal, value = 5 },
-            new CardData { id = 4, name = "Chicken", cost = 1, attack = 1, health = 1, description = "A weak minion", type = CardType.Minion },
+            new CardData { id = 4, name = "Peasant", cost = 1, attack = 1, health = 1, description = "A weak minion", type = CardType.Minion },
             new CardData { id = 5, name = "Orc Warrior", cost = 3, attack = 3, health = 2, description = "A fierce fighter", type = CardType.Minion },
             new CardData { id = 6, name = "Dragon", cost = 8, attack = 8, health = 8, description = "A powerful beast", type = CardType.Minion },
             new CardData { id = 7, name = "Knight", cost = 4, attack = 3, health = 5, description = "A sturdy defender", type = CardType.Minion },

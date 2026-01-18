@@ -47,7 +47,7 @@ MonoBehaviour:
     instanceId: 0
     canAttack: 0
   - id: 4
-    name: Chicken
+    name: Peasant
     cost: 1
     attack: 1
     health: 1

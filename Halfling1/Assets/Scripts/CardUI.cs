@@ -13,6 +13,9 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public TextMeshProUGUI descriptionText;
     public Image cardImage;
     public Outline borderOutline;
+    [Header("Background Images (Optional - for hiding on spell cards)")]
+    public GameObject attackBackground;
+    public GameObject healthBackground;
     //public Image borderImage;
     
     private CardData cardData;
@@ -20,6 +23,18 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     private int index;
     private Vector3 originalScale;
     private Vector3 originalPosition;
+
+    private void Awake() {
+        if (attackBackground == null && attackText != null)
+        {
+            attackBackground = transform.Find("AttackBackground").gameObject;
+        }
+
+        if (healthBackground == null && healthText != null)
+        {
+            healthBackground = transform.Find("HealthBackground").gameObject;
+        }
+    }
     
     private void Start()
     {
@@ -51,16 +66,27 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 attackText.text = cardData.attack.ToString();
                 attackText.gameObject.SetActive(true);
             }
+            if (attackBackground != null)
+            {
+                attackBackground.gameObject.SetActive(true);
+            }
             if (healthText != null)
             {
                 healthText.text = cardData.health.ToString();
                 healthText.gameObject.SetActive(true);
             }
+            if (healthBackground != null)
+            {
+                healthBackground.gameObject.SetActive(true);
+            }
         }
         else
         {
+            // Hide attack and health elements for spell cards
             if (attackText != null) attackText.gameObject.SetActive(false);
+            if (attackBackground != null) attackBackground.gameObject.SetActive(false);
             if (healthText != null) healthText.gameObject.SetActive(false);
+            if (healthBackground != null) healthBackground.gameObject.SetActive(false);
         }
         
         // Update playable state
