@@ -335,7 +335,50 @@ public class GameManager : MonoBehaviour
     {
         if (damagePopupPrefab != null)
         {
-            GameObject popup = Instantiate(damagePopupPrefab, target.position, Quaternion.identity);
+            // Find the Canvas to parent the popup to
+            Canvas canvas = FindObjectOfType<Canvas>();
+            if (canvas == null)
+            {
+                Debug.LogWarning("No Canvas found! Damage popup cannot be displayed.");
+                return;
+            }
+            
+            // Instantiate the popup as a child of the Canvas
+            GameObject popup = Instantiate(damagePopupPrefab, canvas.transform);
+            
+            // Get RectTransform for UI positioning
+            RectTransform popupRect = popup.GetComponent<RectTransform>();
+            RectTransform targetRect = target.GetComponent<RectTransform>();
+            
+            if (popupRect != null && targetRect != null)
+            {
+                // Convert UI element position to screen space, then to canvas space
+                Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(null, targetRect.position);
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    canvas.transform as RectTransform,
+                    screenPoint,
+                    canvas.worldCamera,
+                    out Vector2 localPoint);
+                
+                popupRect.localPosition = localPoint;
+            }
+            else if (popupRect != null)
+            {
+                // Fallback: use world position converted to screen space
+                Camera cam = canvas.worldCamera != null ? canvas.worldCamera : Camera.main;
+                if (cam != null)
+                {
+                    Vector2 screenPoint = cam.WorldToScreenPoint(target.position);
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                        canvas.transform as RectTransform,
+                        screenPoint,
+                        cam,
+                        out Vector2 localPoint);
+                    popupRect.localPosition = localPoint;
+                }
+            }
+            
+            // Set damage value
             DamagePopup damagePopup = popup.GetComponent<DamagePopup>();
             if (damagePopup != null)
             {
