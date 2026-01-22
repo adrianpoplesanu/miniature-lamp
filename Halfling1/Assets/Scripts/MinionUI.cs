@@ -11,6 +11,7 @@ public class MinionUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI nameText;
     public Image borderImage;
+    public Outline outline;
     
     private CardData cardData;
     private bool isPlayer;
@@ -56,16 +57,19 @@ public class MinionUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
                 CardData selected = GameManager.Instance.GetSelectedCard();
                 if (selected == null || selected.instanceId == cardData.instanceId)
                 {
-                    borderImage.color = new Color(1f, 0.27f, 0.27f, 1f); // Red for can attack
+                    //borderImage.color = new Color(1f, 0.27f, 0.27f, 1f); // Red for can attack
+                    outline.effectColor = new Color(1f, 0.27f, 0.27f, 1f);
                 }
                 else
                 {
-                    borderImage.color = new Color(0.85f, 0.65f, 0.13f, 1f); // Gold default
+                    //borderImage.color = new Color(0.85f, 0.65f, 0.13f, 1f); // Gold default
+                    outline.effectColor = new Color(0.85f, 0.65f, 0.13f, 1f);
                 }
             }
             else
             {
-                borderImage.color = new Color(0.85f, 0.65f, 0.13f, 1f); // Gold default
+                //borderImage.color = new Color(0.85f, 0.65f, 0.13f, 1f); // Gold default
+                outline.effectColor = new Color(0.85f, 0.65f, 0.13f, 1f);
             }
         }
         else
@@ -74,11 +78,13 @@ public class MinionUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             CardData selected = GameManager.Instance.GetSelectedCard();
             if (selected != null && selected.canAttack && GameManager.Instance.IsPlayerTurn())
             {
-                borderImage.color = new Color(1f, 0.27f, 0.27f, 1f); // Red for attackable
+                //borderImage.color = new Color(1f, 0.27f, 0.27f, 1f); // Red for attackable
+                outline.effectColor = new Color(1f, 0.27f, 0.27f, 1f);
             }
             else
             {
-                borderImage.color = new Color(0.85f, 0.65f, 0.13f, 1f); // Gold default
+                //borderImage.color = new Color(0.85f, 0.65f, 0.13f, 1f); // Gold default
+                outline.effectColor = new Color(0.85f, 0.65f, 0.13f, 1f);
             }
         }
     }

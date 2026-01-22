@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 7729845506226196808}
   - component: {fileID: 3115357557428738200}
   - component: {fileID: 771194597923441705}
+  - component: {fileID: 5752621594376517508}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -150,6 +151,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5752621594376517508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897629425890452602}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0.85882354, g: 0.69803923, b: 0.14117648, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1308247685841530539
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +451,7 @@ MonoBehaviour:
   healthText: {fileID: 4616020323755021567}
   nameText: {fileID: 9070800511179672016}
   borderImage: {fileID: 2348303165247517844}
+  outline: {fileID: 6492498871204170683}
 --- !u!114 &8452607057275504731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,7 +1114,7 @@ RectTransform:
   m_GameObject: {fileID: 8074846055756862402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.93, y: 0.93, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1397837461738334218}
@@ -1157,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
-  m_EffectColor: {r: 0.8584906, g: 0.6965939, b: 0.14173192, a: 1}
+  m_EffectColor: {r: 0.85882354, g: 0.69803923, b: 0.14117648, a: 1}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
 --- !u!1 &8632252061158769454
