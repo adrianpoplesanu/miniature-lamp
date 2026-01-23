@@ -23,6 +23,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     private int index;
     private Vector3 originalScale;
     private Vector3 originalPosition;
+    private Canvas cardCanvas;
 
     private void Awake() {
         if (attackBackground == null && attackText != null)
@@ -149,14 +150,43 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     {
         if (isPlayer)
         {
+            // Ensure Canvas is set up
+            if (cardCanvas == null)
+            {
+                Canvas parentCanvas = GetComponentInParent<Canvas>();
+                if (parentCanvas != null)
+                {
+                    cardCanvas = gameObject.AddComponent<Canvas>();
+                    cardCanvas.overrideSorting = true;
+                    cardCanvas.renderMode = parentCanvas.renderMode;
+                    cardCanvas.pixelPerfect = parentCanvas.pixelPerfect;
+                    if (GetComponent<GraphicRaycaster>() == null)
+                    {
+                        gameObject.AddComponent<GraphicRaycaster>();
+                    }
+                }
+            }
+            
             transform.localScale = originalScale * 1.1f;
-            // Removed SetAsLastSibling() to prevent cards from shuffling in hand
+            if (cardCanvas != null) cardCanvas.sortingOrder = 100; // Render on top of other cards
         }
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.localScale = originalScale;
+        
+        // Remove Canvas component to prevent event blocking
+        if (cardCanvas != null)
+        {
+            GraphicRaycaster raycaster = GetComponent<GraphicRaycaster>();
+            if (raycaster != null)
+            {
+                Destroy(raycaster);
+            }
+            Destroy(cardCanvas);
+            cardCanvas = null;
+        }
     }
     
     public CardData GetCardData()
