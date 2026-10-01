@@ -53,4 +53,21 @@ public class PlayerInputHandler : MonoBehaviour
 
         return input;
     }
+
+    public float GetLookInputsVertical()
+    {
+        if (!CanProcessInput()) return 0.0f;
+
+        float input = m_LookAction.ReadValue<Vector2>().y;
+
+        if (InvertYAxis) input *= -1;
+
+        input *= LookSensitivity;
+
+#if UNITY_WEBGL
+            input *= WebglLookSensitivityMultiplier;
+#endif
+
+        return input;
+    }
 }

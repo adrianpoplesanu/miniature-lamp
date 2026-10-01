@@ -55,10 +55,8 @@ namespace Unity.FPS.Gameplay
         CharacterController m_Controller;
         PlayerWeaponsManager m_WeaponsManager;
         Actor m_Actor;
+        float m_CameraVerticalAngle = 0f;
 
-
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {  
             m_Controller = GetComponent<CharacterController>();
@@ -67,7 +65,6 @@ namespace Unity.FPS.Gameplay
             m_Actor = GetComponent<Actor>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             HandleCharacgterMovement();
@@ -75,7 +72,15 @@ namespace Unity.FPS.Gameplay
 
         void HandleCharacgterMovement()
         {
+            // horizontal mouse rotation
             transform.Rotate(new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier), 0f), Space.Self);
+
+            // vertical mouse rotation
+            m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * RotationSpeed * RotationMultiplier;
+
+            m_CameraVerticalAngle = Mathf.Clamp(m_CameraVerticalAngle, -89f, 89f);
+
+            PlayerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
         }
     }
 }
