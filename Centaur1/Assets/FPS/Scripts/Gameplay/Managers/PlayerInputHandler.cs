@@ -16,12 +16,15 @@ public class PlayerInputHandler : MonoBehaviour
 
     PlayerCharacterController m_PlayerCharacterController;
     private InputAction m_LookAction;
+    private InputAction m_MoveAction;
 
     void Start()
     {
         m_PlayerCharacterController = GetComponent<PlayerCharacterController>();
 
         m_LookAction = InputSystem.actions.FindAction("Player/Look");
+
+        m_MoveAction = InputSystem.actions.FindAction("Player/Move");
     }
 
     // Update is called once per frame
@@ -34,6 +37,15 @@ public class PlayerInputHandler : MonoBehaviour
     {
         // TODO: implement this
         return true;
+    }
+
+    public Vector3 GetMoveInput()
+    {
+        if (CanProcessInput())
+        {
+            //...
+        }
+        return Vector3.zero;
     }
 
     public float GetLookInputsHorizontal()

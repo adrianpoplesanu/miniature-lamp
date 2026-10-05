@@ -1,16 +1,27 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+namespace Unity.FFS.Game
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class Health : MonoBehaviour
     {
-        
-    }
+        [Tooltip("Maximum amount of health")] public float MaxHealth = 10f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public UnityAction<float, GameObject> OnDamaged;
+        public UnityAction<float> OnHealed;
+        public UnityAction OnDie;
+
+        public float CurrentHealth { get; set; }
+        public bool Invincible { get; set; }
+
+        void Start()
+        {
+            CurrentHealth = MaxHealth;
+        }
+
+        void Update()
+        {
+            
+        }
     }
 }

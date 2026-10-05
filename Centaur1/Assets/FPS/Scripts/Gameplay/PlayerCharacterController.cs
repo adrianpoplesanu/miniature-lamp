@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using Unity.FFS.Game;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,7 +37,11 @@ namespace Unity.FPS.Gameplay
         [Tooltip("Force applied upward when jumping")]
         public float JumpForce = 9f;
 
+        public Vector3 CharacterVelocity { get; set; }
+        public bool IsGrounded { get; private set; }
+        public bool HasJumpedThisFrame { get; private set; }
         public bool IsDead { get; private set; }
+        public bool IsCrouching { get; private set; }
 
         public float RotationMultiplier
         {
@@ -51,6 +55,7 @@ namespace Unity.FPS.Gameplay
             }
         }
 
+        Health m_Health;
         PlayerInputHandler m_InputHandler;
         CharacterController m_Controller;
         PlayerWeaponsManager m_WeaponsManager;
@@ -63,14 +68,15 @@ namespace Unity.FPS.Gameplay
             m_InputHandler = GetComponent<PlayerInputHandler>();
             m_WeaponsManager = GetComponent<PlayerWeaponsManager>();
             m_Actor = GetComponent<Actor>();
+            m_Health = GetComponent<Health>();
         }
 
         void Update()
         {
-            HandleCharacgterMovement();
+            HandleCharacterMovement();
         }
 
-        void HandleCharacgterMovement()
+        void HandleCharacterMovement()
         {
             // horizontal mouse rotation
             transform.Rotate(new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier), 0f), Space.Self);
@@ -81,6 +87,10 @@ namespace Unity.FPS.Gameplay
             m_CameraVerticalAngle = Mathf.Clamp(m_CameraVerticalAngle, -89f, 89f);
 
             PlayerCamera.transform.localEulerAngles = new Vector3(m_CameraVerticalAngle, 0, 0);
+
+            // TODO: add sprinting
+
+            Vector3 worldspaceMoveInput = transform.TransformVector(m_InputHandler.GetMoveInput());
         }
     }
 }

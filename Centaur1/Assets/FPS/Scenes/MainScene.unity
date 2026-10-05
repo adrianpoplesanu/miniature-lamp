@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 709869311}
   - component: {fileID: 709869315}
   - component: {fileID: 709869314}
+  - component: {fileID: 709869316}
   - component: {fileID: 709869310}
   - component: {fileID: 709869309}
   m_Layer: 0
@@ -625,6 +626,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c0e056606745948ecefb7eb102368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponsManager
+--- !u!114 &709869316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709869308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad7c0ee9164c4a7d899c2b83f580695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  MaxHealth: 10
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
